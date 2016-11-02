@@ -124,7 +124,7 @@ int vpu_dmabuf_dump(struct vpu_dmabuf_dev *idev, const char *parent)
 static int ion_heap_type_test(int heap_mask)
 {
     int ion_client;
-    struct ion_handle *handle;
+    ion_user_handle_t handle;
 
     if (g_heap_mask != ION_HEAP_INVALID_ID) {
         return g_heap_mask;
@@ -145,7 +145,7 @@ static int ion_heap_type_test(int heap_mask)
     return g_heap_mask;
 }
 
-inline int vpu_mem_judge_used_heaps_type()
+int vpu_mem_judge_used_heaps_type()
 {
     // TODO, use property_get
     if (!VPUClientGetIOMMUStatus() > 0) {

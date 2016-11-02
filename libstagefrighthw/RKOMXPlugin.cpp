@@ -97,7 +97,7 @@ OMX_ERRORTYPE RKOMXPlugin::AddCore(const char* coreName)
             ALOGI("OMX IL core %s: declares component %s", coreName, tmpComponentName);
             }
             core->mNumComponents = tmpIndex;
-            ALOGI("OMX IL core %s: contains %ld components", coreName, core->mNumComponents);
+            ALOGI("OMX IL core %s: contains %d components", coreName, core->mNumComponents);
         }
         // add plugin to the vector
         mCores.push_back(core);

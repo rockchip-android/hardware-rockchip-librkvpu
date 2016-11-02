@@ -27,9 +27,12 @@
 #include <cutils/log.h>
 #include <hardware/gralloc.h>
 #include "gralloc_priv_omx.h"
-#ifdef GPU_G6110
+#if defined (GPU_G6110)
 #include <hardware/img_gralloc_public.h>
 #define private_handle_t tagIMG_native_handle_t
+#elif defined (USE_DRM)
+#include <gralloc_drm_handle.h>>
+#define private_handle_t gralloc_drm_handle_t
 #else
 #include <gralloc_priv.h>
 #endif
@@ -40,13 +43,18 @@ int32_t Rockchip_get_gralloc_private(uint32_t *handle,gralloc_private_handle_t *
     }
     private_handle_t *priv_hnd = (private_handle_t *)handle;
     private_hnd->format = priv_hnd->format;
-#ifdef GPU_G6110
-    private_hnd->share_fd = priv_hnd->fd[0];
+
+#ifdef USE_DRM
+    private_hnd->share_fd = priv_hnd->prime_fd;
 #else
-    private_hnd->share_fd = priv_hnd->share_fd;
+    #ifdef GPU_G6110
+        private_hnd->share_fd = priv_hnd->fd[0];
+    #else
+        private_hnd->share_fd = priv_hnd->share_fd;
+    #endif 
+    private_hnd->type = priv_hnd->type;
 #endif
     private_hnd->stride = priv_hnd->stride;
-    private_hnd->type = priv_hnd->type;
     private_hnd->size = priv_hnd->size;
     return 0;
 }
