@@ -32,8 +32,10 @@ ifeq ($(strip $(TARGET_BOARD_PLATFORM_GPU)),G6110)
 	LOCAL_CFLAGS += -DGPU_G6110
 endif
 
+ifeq ($(strip $(BOARD_USE_DRM)), true)
 ifeq ($(strip $(TARGET_BOARD_PLATFORM)),rk3399)
         LOCAL_CFLAGS += -DUSE_DRM -DRK_DRM_GRALLOC=1 -DMALI_AFBC_GRALLOC=1
+endif
 endif
 
 include $(BUILD_SHARED_LIBRARY)
