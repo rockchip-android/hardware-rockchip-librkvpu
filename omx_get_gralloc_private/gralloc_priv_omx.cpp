@@ -31,7 +31,7 @@
 #include <hardware/img_gralloc_public.h>
 #define private_handle_t tagIMG_native_handle_t
 #elif defined (USE_DRM)
-#include <gralloc_drm_handle.h>>
+#include <gralloc_drm_handle.h>
 #define private_handle_t gralloc_drm_handle_t
 #else
 #include <gralloc_priv.h>
