@@ -427,7 +427,7 @@ vpu_display_mem_pool* open_vpu_memory_pool()
     if (atomic_read(&pool_manager.init) != VPU_MEM_POOL_INIT_MAGIC) {
         INIT_LIST_HEAD(&pool_manager.pend_pool_list);
         atomic_set(&pool_manager.pend_cnt, 0);
-        pthread_create(&pool_manager.manager_thread, NULL, pool_manager_thread, NULL);
+        //pthread_create(&pool_manager.manager_thread, NULL, pool_manager_thread, NULL);
         //pthread_create(&pool_manager.observer_thread, NULL, vpu_memory_status_observer, NULL);
         atomic_set(&pool_manager.init, VPU_MEM_POOL_INIT_MAGIC);
         atomic_set(&pool_manager.total_mem_size, 0);
