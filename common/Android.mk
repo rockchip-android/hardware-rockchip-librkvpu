@@ -14,6 +14,12 @@ ifneq ($(filter rk3366 rk3399 rk3228 rk3328 rk3229 rk322x, $(strip $(TARGET_BOAR
 USE_MPP := true
 endif 
 
+ifeq (1, $(strip $(shell expr $(PLATFORM_VERSION) \>= 7.0)))
+  ifeq ($(strip $(TARGET_BOARD_PLATFORM)), rk3288)
+    USE_MPP := true
+  endif
+endif
+
 ifeq ($(USE_MPP), false)
 
 include $(CLEAR_VARS)
