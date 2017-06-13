@@ -33,7 +33,7 @@ ifeq ($(strip $(TARGET_BOARD_PLATFORM_GPU)),G6110)
 endif
 
 ifeq ($(strip $(BOARD_USE_DRM)), true)
-ifneq ($(filter rk3399 rk3288, $(strip $(TARGET_BOARD_PLATFORM))), )
+ifneq ($(filter rk3399 rk3288 rk322x, $(strip $(TARGET_BOARD_PLATFORM))), )
         LOCAL_CFLAGS += -DUSE_DRM -DRK_DRM_GRALLOC=1 -DMALI_AFBC_GRALLOC=1
 endif
 endif
