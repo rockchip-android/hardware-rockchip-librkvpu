@@ -37,7 +37,7 @@ LOCAL_ARM_MODE := arm
 LOCAL_PRELINK_MODULE := false
 
 
-LOCAL_SHARED_LIBRARIES := libcutils libion
+LOCAL_SHARED_LIBRARIES := libcutils libion liblog
 LOCAL_STATIC_LIBRARIES := #ibion_vpu #libvpu_mem_pool
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH) \
