@@ -33,6 +33,7 @@ endif
 # end use vpu framework mpp
 
 LOCAL_ARM_MODE := arm
+LOCAL_PROPRIETARY_MODULE := true
 
 LOCAL_PRELINK_MODULE := false
 

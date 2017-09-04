@@ -51,6 +51,7 @@ LOCAL_SHARED_LIBRARIES :=       \
 	liblog                    \
 
 LOCAL_MODULE := libstagefrighthw
+LOCAL_PROPRIETARY_MODULE := true
 LOCAL_PRELINK_MODULE := false
 LOCAL_MODULE_OWNER := rockchip,intel
 

@@ -4,6 +4,7 @@ LOCAL_SRC_FILES := gralloc_priv_omx.cpp
 LOCAL_SHARED_LIBRARIES := liblog libutils 
 LOCAL_MODULE := libgralloc_priv_omx
 LOCAL_MODULE_TAGS := optional
+LOCAL_PROPRIETARY_MODULE := true
 
 LOCAL_C_INCLUDES := \
 	$(TOP)/hardware/rockchip/libgralloc \
