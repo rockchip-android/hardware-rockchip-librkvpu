@@ -15,7 +15,7 @@ USE_MPP := true
 endif 
 
 ifeq (1, $(strip $(shell expr $(PLATFORM_VERSION) \>= 7.0)))
-  ifeq ($(strip $(TARGET_BOARD_PLATFORM)), rk3288)
+  ifneq ($(filter rk3288 rk3126c, $(strip $(TARGET_BOARD_PLATFORM))), )
     USE_MPP := true
   endif
 endif
